@@ -56,24 +56,39 @@ outputs/
 *.arrow
 *.jsonl
 
-# Node.js (Docusaurus)
+# Node.js / Docusaurus
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 .npm
 .yarn-integrity
+*.tgz
+.pnpm-store
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # Docusaurus build output
+.docusaurus/
 docs/.docusaurus/
 docs/build/
-.docusaurus/
+build/Release
+
+# TypeScript
+*.tsbuildinfo
 
 # Environment variables — never commit secrets
 .env
+.env.*
+!.env.example
 .env.local
 .env.*.local
-*.env
 
 # OS
 .DS_Store
@@ -105,3 +120,5 @@ Desktop.ini
 *.log
 *.tmp
 *.bak
+.cache/
+.parcel-cache
