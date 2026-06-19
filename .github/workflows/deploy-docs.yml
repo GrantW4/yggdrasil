@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build Docusaurus Site
+    name: Build VitePress Site
     runs-on: ubuntu-latest
 
     steps:
@@ -34,24 +34,22 @@ jobs:
         uses: actions/cache@v4
         with:
           path: docs/node_modules
-          key: ${{ runner.os }}-node22-${{ hashFiles('docs/package.json') }}
+          key: ${{ runner.os }}-vitepress-${{ hashFiles('docs/package.json') }}
           restore-keys: |
-            ${{ runner.os }}-node22-
+            ${{ runner.os }}-vitepress-
 
       - name: Install dependencies
         working-directory: docs
         run: npm install
 
-      - name: Build Docusaurus
+      - name: Build VitePress site
         working-directory: docs
-        env:
-          NODE_ENV: production
         run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/build
+          path: docs/.vitepress/dist
 
   deploy:
     name: Deploy to GitHub Pages

@@ -1,0 +1,54 @@
+:root {
+  --vp-c-brand-1: #58a6ff;
+  --vp-c-brand-2: #79c0ff;
+  --vp-c-brand-3: #a5d6ff;
+  --vp-c-brand-soft: rgba(88, 166, 255, 0.14);
+
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+/* Hero name — large YGGDRASIL text */
+.VPHero .name {
+  background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 50%, #a5d6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+}
+
+/* Code blocks */
+:root {
+  --vp-code-block-bg: #161b22;
+  --vp-code-color: #e6edf3;
+}
+
+/* Tables */
+.vp-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.vp-doc th {
+  background: var(--vp-c-bg-soft);
+  font-weight: 700;
+}
+
+.vp-doc th,
+.vp-doc td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.6rem 1rem;
+  text-align: left;
+}
+
+/* Inline code */
+.vp-doc :not(pre) > code {
+  color: #ff7b72;
+  background: var(--vp-c-bg-soft);
+}
+
+/* Sidebar active link */
+.VPSidebarItem.is-active > .item > .link > .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
