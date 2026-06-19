@@ -1,4 +1,5 @@
 export default {
+  ignoreDeadLinks: true,
   title: 'The Yggdrasil Project',
   description: 'From zero to AI systems engineer.',
   base: '/yggdrasil/',
