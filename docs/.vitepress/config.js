@@ -1,11 +1,14 @@
 export default {
   ignoreDeadLinks: true,
+  markdown: {
+    attrs: { disable: true },
+  },
   vite: {
     optimizeDeps: {
-      include: ['vue'],
+      include: ['vue', '@vue/server-renderer'],
     },
     ssr: {
-      noExternal: ['vue'],
+      noExternal: ['vue', '@vue/server-renderer'],
     },
   },
   title: 'The Yggdrasil Project',
