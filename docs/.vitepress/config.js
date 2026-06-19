@@ -1,5 +1,13 @@
 export default {
   ignoreDeadLinks: true,
+  vite: {
+    optimizeDeps: {
+      include: ['vue'],
+    },
+    ssr: {
+      noExternal: ['vue'],
+    },
+  },
   title: 'The Yggdrasil Project',
   description: 'From zero to AI systems engineer.',
   base: '/yggdrasil/',
