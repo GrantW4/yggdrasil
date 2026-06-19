@@ -119,6 +119,15 @@ const config = {
       additionalLanguages: ['python', 'bash', 'json', 'yaml'],
     },
   },
+
+  webpack: (config) => {
+    // Remove ProgressPlugin — causes schema validation error with
+    // webpack 5 + newer Node.js versions bundled in Docusaurus 3.6.x
+    config.plugins = config.plugins.filter(
+      (plugin) => plugin.constructor.name !== 'ProgressPlugin'
+    );
+    return config;
+  },
 };
 
 module.exports = config;
