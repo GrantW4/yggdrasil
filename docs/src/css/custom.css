@@ -1,0 +1,177 @@
+/* Yggdrasil — Docusaurus custom CSS */
+
+/* ── Brand colors ── */
+:root {
+  --ifm-color-primary: #58a6ff;
+  --ifm-color-primary-dark: #3d96ff;
+  --ifm-color-primary-darker: #2f8eff;
+  --ifm-color-primary-darkest: #0d77ff;
+  --ifm-color-primary-light: #73b6ff;
+  --ifm-color-primary-lighter: #82beff;
+  --ifm-color-primary-lightest: #aad3ff;
+
+  --ifm-code-font-size: 90%;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+
+  --ifm-navbar-background-color: #161b22;
+  --ifm-navbar-link-color: #e6edf3;
+  --ifm-navbar-link-hover-color: #58a6ff;
+
+  --ifm-footer-background-color: #0d1117;
+
+  --docusaurus-highlighted-code-line-bg: rgba(88, 166, 255, 0.08);
+}
+
+/* Dark mode is the default for this project */
+[data-theme='dark'] {
+  --ifm-background-color: #0d1117;
+  --ifm-background-surface-color: #161b22;
+  --ifm-card-background-color: #161b22;
+  --ifm-color-emphasis-100: #1c2128;
+  --ifm-color-emphasis-200: #21262d;
+  --ifm-color-emphasis-300: #30363d;
+  --ifm-color-emphasis-600: #8b949e;
+  --ifm-color-emphasis-700: #c9d1d9;
+  --ifm-heading-color: #e6edf3;
+  --ifm-font-color-base: #c9d1d9;
+}
+
+[data-theme='light'] {
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f6f8fa;
+  --ifm-card-background-color: #ffffff;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #24292f;
+  --ifm-footer-background-color: #f6f8fa;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+article h1 {
+  font-size: 2.2rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Code blocks ── */
+pre {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+}
+
+code {
+  border-radius: 4px;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  color: #ff7b72;
+  padding: 0.15em 0.4em;
+}
+
+/* ── Tables ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+th {
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 700;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.6rem 1rem;
+}
+
+tr:hover td {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* ── Admonitions ── */
+.alert {
+  border-radius: 8px;
+  border-left-width: 4px;
+}
+
+/* ── Navbar ── */
+.navbar {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: none;
+}
+
+.navbar__title {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  font-family: var(--ifm-font-family-monospace);
+  color: #58a6ff;
+}
+
+/* ── Sidebar ── */
+.menu__link {
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.menu__link--active {
+  background: rgba(88, 166, 255, 0.1);
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+/* ── Progress checkboxes in lessons ── */
+input[type='checkbox'] {
+  accent-color: #58a6ff;
+}
+
+/* ── Footer ── */
+.footer {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.footer__title {
+  font-weight: 700;
+  color: #e6edf3;
+}
+
+/* ── Math (KaTeX) ── */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+}
+
+/* ── Lesson metadata badges ── */
+.badge--phase {
+  background: rgba(88, 166, 255, 0.15);
+  color: #58a6ff;
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 4px;
+  padding: 0.2em 0.6em;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  article h1 {
+    font-size: 1.6rem;
+  }
+
+  pre {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,90 @@
+name: Validate Curriculum
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'curriculum/**'
+      - 'templates/**'
+      - 'scripts/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'curriculum/**'
+      - 'templates/**'
+      - 'scripts/**'
+
+jobs:
+  validate:
+    name: Validate Lesson Structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Validate lesson structure
+        run: python scripts/validate-lessons.py
+
+      - name: Check for broken internal links
+        run: python scripts/check-links.py
+
+      - name: Lint markdown
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: |
+            curriculum/**/*.md
+            templates/**/*.md
+            README.md
+            CONTRIBUTING.md
+            BADGES.md
+          config: .markdownlint.json
+
+  test-code-examples:
+    name: Test Code Examples
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install ML dependencies
+        run: |
+          pip install --upgrade pip
+          pip install numpy pandas matplotlib scikit-learn torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Extract and test Python code blocks
+        run: python scripts/test-code-examples.py
+
+  quiz-validation:
+    name: Validate Quiz Format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate quiz files
+        run: python scripts/validate-quizzes.py
