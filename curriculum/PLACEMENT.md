@@ -12,7 +12,7 @@ Answer each question without looking anything up.
 
 **Q2.** What does it mean for a matrix to be singular? Why does it matter for machine learning?
 
-**Q3.** Compute the gradient of $f(x, y) = 3x^2 + 2xy - y^2$ with respect to both $x$ and $y$.
+**Q3.** Compute the gradient of `f(x, y) = 3x^2 + 2xy - y^2` with respect to both `x` and `y`.
 
 **Q4.** What is the difference between P(A|B) and P(B|A)? Write Bayes' theorem.
 
